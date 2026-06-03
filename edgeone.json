@@ -4,6 +4,11 @@
       "source": "$host",
       "destination": "$wwwhost",
       "statusCode": 301
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "statusCode": 301
     }
   ]
 }
