@@ -26,6 +26,7 @@ const guide = defineCollection({
     description: z.string(),
     date: z.date(),
     category: z.string().optional(),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 

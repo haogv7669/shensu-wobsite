@@ -24,6 +24,7 @@ const { Content } = await render(item);
     { label: '知识库', href: '/guide' },
     { label: item.data.title },
   ]}
+  faqSchema={item.data.faq || []}
 >
   <h1 class="text-xl md:text-2xl font-semibold text-primary leading-snug mb-3">{item.data.title}</h1>
   {item.data.date && <p class="text-xs text-text-light mb-6">{item.data.date.toLocaleDateString('zh-CN')}</p>}
