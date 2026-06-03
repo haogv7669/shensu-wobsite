@@ -16,7 +16,7 @@ articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
       <div class="space-y-5">
         {articles.map(a => (
-          <a href={`/guide/${a.id}`} class="block bg-white rounded border border-border p-5 hover:border-primary/30 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all">
+          <a href={`/guide/${a.id}/`} class="block bg-white rounded border border-border p-5 hover:border-primary/30 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all">
             <div class="flex items-center gap-3 mb-2">
               {a.data.category && <span class="text-[10px] font-medium text-accent bg-accent/5 px-2 py-0.5 rounded">{a.data.category}</span>}
               <span class="text-xs text-text-light">{a.data.date.toLocaleDateString('zh-CN')}</span>
