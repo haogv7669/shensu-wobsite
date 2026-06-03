@@ -1,0 +1,153 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import StepIndicator from '@components/StepIndicator.astro';
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: '壹号申诉',
+  description: '杭州律师团队，专注电商平台违规申诉材料协助。可线下到访阿里沟通。',
+  address: { '@type': 'PostalAddress', addressLocality: '杭州', addressRegion: '浙江', addressCountry: 'CN' },
+  contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', availableLanguage: 'Chinese' },
+};
+
+const scenarios = [
+  { label: '售假误判', desc: '授权链断层、发票笼统、购买鉴定，材料对但没对齐平台审核标准。', href: '/taobao/shoujia-wupan' },
+  { label: '知识产权投诉', desc: '商标权人投诉、专利侵权、著作权侵权，区分投诉主体和权利类型是关键。', href: '/taobao/zhishichanquan-tousu' },
+  { label: '授权链问题', desc: '授权书过期、范围不足、主体不一致，最常见的申诉失败原因。', href: '/materials/shouquan-lian' },
+  { label: '发票凭证不足', desc: '发票笼统、缺发票、与进货单不对应，怎么补开、怎么整理对应关系。', href: '/materials/fapiao' },
+];
+
+const processSteps = [
+  { title: '看处罚截图', body: '确认处罚类型、违规编号、申诉截止时间' },
+  { title: '看平台要求', body: '平台要哪些核心材料，审核逻辑是什么' },
+  { title: '看现有材料', body: '授权链、发票、付款记录能不能对应，找出缺口' },
+  { title: '判断补强方向', body: '缺口在哪、能补什么。疑难案件对接杭州律师团队' },
+];
+---
+
+<BaseLayout title="壹号申诉 - 淘宝/天猫商家违规申诉材料协助" description="杭州律师团队，专注电商违规申诉材料协助。先看处罚截图，再判断处理空间。不通过不收费。" schema={orgSchema}>
+  <!-- ① Hero -->
+  <section class="min-h-[90dvh] flex items-center bg-primary relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/[0.03] rounded-full translate-x-1/4 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-white/[0.015] rounded-full -translate-x-1/3 translate-y-1/3"></div>
+      <div class="absolute top-1/2 left-0 w-96 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent"></div>
+    </div>
+    <div class="max-w-3xl mx-auto text-center w-full px-4 sm:px-6 lg:px-8 relative">
+      <p class="text-[11px] font-medium text-accent uppercase tracking-[0.2em] mb-6">杭州律师团队 · 可线下到访阿里</p>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-white">
+        淘宝/天猫商家<br />违规申诉材料协助
+      </h1>
+      <p class="mt-8 text-[15px] md:text-base text-white/55 max-w-lg mx-auto leading-relaxed">
+        先看处罚截图和现有材料，再判断是否有处理空间。不承诺结果，不做虚假材料。
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="/contact" class="inline-flex items-center px-10 py-4 text-sm font-semibold text-primary bg-accent hover:bg-accent-light rounded-md transition-colors w-full sm:w-auto justify-center">
+          提交处罚截图，免费初筛
+        </a>
+        <a href="#scenarios" class="inline-flex items-center px-10 py-4 text-sm font-medium text-white/70 border border-white/15 hover:border-white/30 hover:text-white rounded-md transition-colors w-full sm:w-auto justify-center">
+          了解我们能做什么
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 常见违规场景 -->
+  <section id="scenarios" class="py-16 md:py-36 bg-[#F7F6F3]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary tracking-tight">常见违规场景</h2>
+        <p class="mt-3 text-[15px] text-text-muted">每种类型处罚逻辑不同，申诉路径也不同</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {scenarios.map(s => (
+          <a href={s.href} class="group flex flex-col bg-white rounded-lg border border-[#EAEAEA] p-7 hover:border-primary/20 hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300">
+            <h3 class="text-lg font-semibold text-primary group-hover:text-primary-light transition-colors">{s.label}</h3>
+            <p class="mt-2.5 text-[15px] text-text-muted leading-relaxed">{s.desc}</p>
+            <span class="mt-4 text-xs font-medium text-text-light group-hover:text-primary transition-colors">了解详情 →</span>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/taobao" class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-primary transition-colors font-medium">
+          查看全部违规类型
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ 服务流程 -->
+  <section id="process" class="py-16 md:py-36 bg-primary relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/[0.03] rounded-full -translate-x-1/3 translate-y-1/3"></div>
+    </div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center mb-14">
+        <p class="text-[11px] font-medium text-accent uppercase tracking-[0.2em] mb-3">服务流程</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">看材料，不猜结果</h2>
+        <p class="mt-3 text-[15px] text-white/45">四步判断你的申诉有多少处理空间</p>
+      </div>
+      <StepIndicator steps={processSteps} dark />
+    </div>
+  </section>
+
+  <!-- ④ 服务边界 -->
+  <section class="py-16 md:py-36 bg-[#F7F6F3]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary tracking-tight">我们能做什么，不碰什么</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg border border-[#EAEAEA] p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-9 h-9 rounded-md bg-green-100 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <h3 class="text-[15px] font-semibold text-green-800">我们提供</h3>
+          </div>
+          <ul class="space-y-3 text-[15px] text-text-muted">
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-green-600/30 shrink-0"></span>材料梳理：现有材料能否对应平台要求</li>
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-green-600/30 shrink-0"></span>材料补强建议：缺口在哪里、怎么补</li>
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-green-600/30 shrink-0"></span>授权链核查：逐层核对主体、期限、范围</li>
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-green-600/30 shrink-0"></span>发票凭证整理：发票与进货单一一对应</li>
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-green-600/30 shrink-0"></span>线下到访阿里：疑难案件当面沟通</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg border border-[#EAEAEA] p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-9 h-9 rounded-md bg-red-100 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <h3 class="text-[15px] font-semibold text-red-800">我们不碰</h3>
+          </div>
+          <ul class="space-y-3 text-[15px] text-text-muted">
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-red-500/30 shrink-0"></span>不承诺申诉结果、不包过</li>
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-red-500/30 shrink-0"></span>不做虚假材料（假授权书、假发票）</li>
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-red-500/30 shrink-0"></span>不宣传内部渠道、认识小二</li>
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-red-500/30 shrink-0"></span>不冒充官方或律师身份</li>
+            <li class="flex items-start gap-2.5"><span class="mt-2 w-1 h-1 rounded-full bg-red-500/30 shrink-0"></span>不接明知售假的案件</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 底部 CTA -->
+  <section class="py-16 md:py-36 bg-primary">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
+        不确定你的情况能不能申诉？
+      </h2>
+      <p class="mt-4 text-[15px] text-white/55 leading-relaxed">
+        把处罚截图发过来，免费帮你看。<br />初筛不收费，不通过不收费。
+      </p>
+      <div class="mt-9">
+        <a href="/contact" class="inline-flex items-center px-10 py-4 text-sm font-semibold text-primary bg-accent hover:bg-accent-light rounded-md transition-colors">
+          提交处罚截图，免费初筛
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

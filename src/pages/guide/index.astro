@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const articles = await getCollection('guide');
+articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="电商合规知识库 — 壹号申诉" description="电商合规知识库，覆盖授权链、发票、对公流水、知识产权投诉材料、申诉入口等实用主题。每一篇对应一个真实商家搜索词。">
+  <section class="pt-20 pb-24 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-2xl md:text-3xl font-semibold text-primary mb-3">电商合规知识库</h1>
+        <p class="text-sm text-text-muted max-w-lg mx-auto">每一篇文章对应一个真实的商家搜索词。读完就能对照自己的情况判断下一步。</p>
+      </div>
+
+      <div class="space-y-5">
+        {articles.map(a => (
+          <a href={`/guide/${a.id}`} class="block bg-white rounded border border-border p-5 hover:border-primary/30 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all">
+            <div class="flex items-center gap-3 mb-2">
+              {a.data.category && <span class="text-[10px] font-medium text-accent bg-accent/5 px-2 py-0.5 rounded">{a.data.category}</span>}
+              <span class="text-xs text-text-light">{a.data.date.toLocaleDateString('zh-CN')}</span>
+            </div>
+            <h2 class="text-base font-semibold text-primary mb-1.5">{a.data.title}</h2>
+            <p class="text-sm text-text-muted leading-relaxed">{a.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

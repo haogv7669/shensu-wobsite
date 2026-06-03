@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ContactForm from '@components/ContactForm.astro';
+---
+
+<BaseLayout title="免费初筛 — 壹号申诉" description="提交处罚截图，免费初筛。杭州律师团队帮你看材料有没有处理空间。初筛不收费，2小时内反馈。">
+  <section class="pt-20 pb-24 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-lg mx-auto">
+      <div class="text-center mb-10">
+        <h1 class="text-2xl md:text-3xl font-semibold text-primary mb-3">免费初筛 · 提交处罚截图</h1>
+        <p class="text-sm text-text-muted">初筛不收费，2 小时内微信反馈。不通过不收费。</p>
+      </div>
+
+      <ContactForm />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+
+const types = [
+  { label: '售假误判申诉', tag: '最高频', desc: '授权链断层、发票笼统、购买鉴定——材料对但没对齐平台审核标准', href: '/taobao/shoujia-wupan' },
+  { label: '知识产权投诉申诉', tag: '商标/专利/版权', desc: '商标权人投诉、专利侵权、著作权——区分投诉主体和权利类型', href: '/taobao/zhishichanquan-tousu' },
+  { label: '不当使用他人权利申诉', tag: '高频', desc: '商品描述引用品牌名被判侵权——正品情况下如何证明客观陈述', href: '/taobao/budang-shiyong-taren-quanli' },
+  { label: '危及交易安全申诉', tag: '严重', desc: '商品异常、支付宝限权——尽快处理，申诉窗口期较短', href: '/taobao/weiji-jiaoyi-anquan' },
+  { label: '虚假交易申诉', tag: '常见', desc: '真实交易被误识别为虚假交易——完整的物流和资金证据链', href: '/taobao/xuni-jiaoyi' },
+  { label: '账期延长/资金冻结申诉', tag: '资金类', desc: '回款周期拉长、资金被冻结——申诉重点在交易真实性', href: '/taobao/zhangqi-yanchang' },
+];
+---
+
+<BaseLayout title="淘宝店铺违规申诉材料协助 — 壹号申诉" description="淘宝店铺违规申诉材料协助，覆盖售假误判、知识产权投诉、不当使用他人权利、危及交易安全、虚假交易、账期延长六大类型。">
+  <section class="pt-20 pb-24 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-2xl md:text-3xl font-semibold text-primary mb-3">淘宝店铺违规申诉材料协助</h1>
+        <p class="text-sm text-text-muted max-w-lg mx-auto">每种违规类型的处罚逻辑不同，申诉路径也不同。先判断类型，再决定策略。</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {types.map(t => <ServiceCard {...t} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

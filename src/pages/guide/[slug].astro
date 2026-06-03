@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '@layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const items = await getCollection('guide');
+  return items.map(item => ({ params: { slug: item.id } }));
+}
+
+const { slug } = Astro.params;
+const items = await getCollection('guide');
+const item = items.find(i => i.id === slug);
+
+if (!item) return Astro.redirect('/404');
+
+const { Content } = await render(item);
+---
+
+<ArticleLayout
+  title={`${item.data.title} — 壹号申诉知识库`}
+  description={item.data.description}
+  breadcrumbs={[
+    { label: '首页', href: '/' },
+    { label: '知识库', href: '/guide' },
+    { label: item.data.title },
+  ]}
+>
+  <h1 class="text-xl md:text-2xl font-semibold text-primary leading-snug mb-3">{item.data.title}</h1>
+  {item.data.date && <p class="text-xs text-text-light mb-6">{item.data.date.toLocaleDateString('zh-CN')}</p>}
+  <Content />
+</ArticleLayout>

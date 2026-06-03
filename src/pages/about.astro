@@ -1,0 +1,71 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: '壹号申诉',
+  description: '杭州律师团队，专注电商平台违规申诉材料协助。可线下到访阿里沟通。',
+  address: { '@type': 'PostalAddress', addressLocality: '杭州', addressRegion: '浙江', addressCountry: 'CN' },
+};
+---
+
+<BaseLayout title="关于壹号申诉" description="杭州律师团队，专注电商违规申诉材料协助。位于杭州，可线下到访阿里沟通。不承诺结果，不做虚假材料。" schema={orgSchema}>
+  <section class="pt-20 pb-24 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-2xl md:text-3xl font-semibold text-primary text-center mb-12">关于壹号申诉</h1>
+
+      <div class="space-y-10 text-sm text-text-muted leading-relaxed">
+        <div>
+          <h2 class="text-lg font-semibold text-primary mb-3">杭州律师团队</h2>
+          <p>我们合作的律师团队位于杭州，临近阿里巴巴西溪园区。团队长期服务电子商务、新媒体、跨境电商等新兴行业领域，对阿里系平台规则、知识产权投诉申诉流程及电商争议处理逻辑有深入理解。</p>
+          <p class="mt-3">与深圳、广州的远程服务商不同——疑难案件可由律师线下到访阿里园区，当面对接审核部门沟通案情。这是物理距离带来的天然优势。</p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-primary mb-3">我们做什么</h2>
+          <p>我们提供电商店铺违规申诉材料协助——不是代申诉，不是打包票。商家把处罚截图和现有材料发过来，我们先判断：这是什么处罚类型、现有材料够不够、缺口在哪里、有没有进一步处理空间。</p>
+          <p class="mt-3">如果材料基础还可以，就协助商家梳理授权链和证据链，把材料补到能提交的程度。涉及严重处罚——售假扣 24 分或 48 分、有店铺清退风险、或法律关系交叉——就对接杭州合作律师团队做专业支持。</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-surface rounded p-6">
+            <h3 class="text-sm font-semibold text-green-700 mb-3">我们提供</h3>
+            <ul class="text-xs space-y-1.5">
+              <li>· 处罚类型初步判断</li>
+              <li>· 申诉材料缺口分析</li>
+              <li>· 授权链逐层核查</li>
+              <li>· 发票与进货单对应整理</li>
+              <li>· 证据链完整性检查</li>
+              <li>· 疑难案件律师对接</li>
+              <li>· 线下到访阿里沟通</li>
+            </ul>
+          </div>
+          <div class="bg-surface rounded p-6">
+            <h3 class="text-sm font-semibold text-red-700 mb-3">我们不提供</h3>
+            <ul class="text-xs space-y-1.5">
+              <li>· 申诉结果承诺</li>
+              <li>· 包过、必过的保证</li>
+              <li>· 虚假授权书/发票</li>
+              <li>· 内部渠道/认识小二</li>
+              <li>· 冒充官方或律师</li>
+              <li>· 明知售假的协助</li>
+              <li>· 灰产或刷单解封</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-primary mb-3">我们是律师事务所吗？</h2>
+          <p>不是。我们是内容辅助和材料整理服务方，与杭州律师团队有合作关系。需要法律意见的商家，可通过我们对接律师团队。我们不直接出具法律意见书。</p>
+        </div>
+
+        <div class="text-center pt-6">
+          <a href="/contact" class="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-accent hover:bg-accent-light rounded transition-colors">
+            提交处罚截图，免费初筛
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  label: string;
+  tag?: string;
+  desc: string;
+  href: string;
+}
+
+const { label, tag, desc, href } = Astro.props;
+---
+
+<a href={href} class="group block bg-white rounded border border-border p-5 hover:border-primary/30 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all">
+  <div class="flex items-center gap-2.5 mb-2.5">
+    <span class="text-sm font-semibold text-primary group-hover:text-primary-light transition-colors">{label}</span>
+    {tag && <span class="text-[10px] font-medium text-accent bg-accent/5 px-1.5 py-0.5 rounded">{tag}</span>}
+  </div>
+  <p class="text-xs text-text-muted leading-relaxed">{desc}</p>
+</a>
