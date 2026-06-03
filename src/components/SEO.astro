@@ -28,6 +28,17 @@ const { title, description, schema } = Astro.props;
   gtag('config', 'G-XXXXXXXXXX');
 </script>
 
+<!-- Baidu Analytics -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?158102cc9e3ec913377fdc88949695e6";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
 {schema && (
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 )}
