@@ -26,7 +26,7 @@ const processSteps = [
 ];
 ---
 
-<BaseLayout title="壹号申诉 - 淘宝/天猫商家违规申诉材料协助" description="杭州律师团队，专注电商违规申诉材料协助。先看处罚截图，再判断处理空间。不通过不收费。" schema={orgSchema}>
+<BaseLayout title="淘宝天猫违规申诉协助 | 壹号申诉" description="杭州律师团队，专注电商违规申诉材料协助。先看处罚截图，再判断处理空间。不通过不收费。" schema={orgSchema}>
   <!-- ① Hero -->
   <section class="min-h-[90dvh] flex items-center bg-primary relative overflow-hidden">
     <div class="absolute inset-0 pointer-events-none">
@@ -134,7 +134,61 @@ const processSteps = [
     </div>
   </section>
 
-  <!-- ⑤ 底部 CTA -->
+  <!-- ⑤ 常见问题 -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary tracking-tight">常见问题</h2>
+        <p class="mt-3 text-[15px] text-text-muted">合作前你最关心的几个问题</p>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-surface rounded-lg border border-border/50">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-sm font-semibold text-primary list-none">
+            申诉可以保证成功吗？
+            <svg class="w-4 h-4 shrink-0 ml-2 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="px-6 pb-4 text-sm text-text-muted leading-relaxed">
+            <p>不能。申诉结果由平台审核决定，我们不承诺包过。我们会先做免费评估，一对一判断处理空间、材料缺口和申诉路径。部分符合条件的案件，可以沟通成功后付。</p>
+          </div>
+        </details>
+        <details class="group bg-surface rounded-lg border border-border/50">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-sm font-semibold text-primary list-none">
+            失败可以退款吗？
+            <svg class="w-4 h-4 shrink-0 ml-2 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="px-6 pb-4 text-sm text-text-muted leading-relaxed">
+            <p>具体看合作方式。初步评估免费，正式合作前会说明服务内容、付款方式和退款规则。部分案件可成功后付，但不是所有案件都适合。</p>
+          </div>
+        </details>
+        <details class="group bg-surface rounded-lg border border-border/50">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-sm font-semibold text-primary list-none">
+            有不成功不收费的服务吗？
+            <svg class="w-4 h-4 shrink-0 ml-2 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="px-6 pb-4 text-sm text-text-muted leading-relaxed">
+            <p>部分案件符合条件，可以沟通成功后付。我们会先看材料基础、违规类型、处理路径和后续空间，再判断是否适合。不会为了接单盲目承诺，也不会引导客户做虚假材料。</p>
+          </div>
+        </details>
+        <details class="group bg-surface rounded-lg border border-border/50">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-sm font-semibold text-primary list-none">
+            怎么确定你们会认真处理？
+            <svg class="w-4 h-4 shrink-0 ml-2 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="px-6 pb-4 text-sm text-text-muted leading-relaxed">
+            <p>我们先免费评估，再一对一梳理证据和材料。处理方式是线上材料整理 + 杭州线下协同沟通，全程围绕真实材料、证据链和申诉逻辑推进。不承诺内部渠道，不承诺包过，不做虚假材料。</p>
+          </div>
+        </details>
+      </div>
+      <div class="text-center mt-8">
+        <a href="/faq/" class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-primary transition-colors font-medium">
+          查看全部常见问题
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ 底部 CTA -->
   <section class="py-16 md:py-36 bg-primary">
     <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
