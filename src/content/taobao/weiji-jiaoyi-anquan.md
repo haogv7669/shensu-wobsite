@@ -49,4 +49,9 @@ faq:
 
 先看处罚截图和现有材料，再判断是否有处理空间。我们不承诺结果，不做虚假材料。
 
+## 相关文章
+
+- [被处罚后第一步做什么？正确处理顺序](/guide/taobao-chufa-hou-xianzuo-shenme/)
+- [处罚截图怎么看？违规编号、截止时间解读](/guide/taobao-chufa-jietu-zenmekan/)
+
 [提交处罚截图，免费初筛 →](/contact/)

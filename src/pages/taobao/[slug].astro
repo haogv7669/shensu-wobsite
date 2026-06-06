@@ -15,17 +15,27 @@ if (!item) return Astro.redirect('/404');
 
 const { Content } = await render(item);
 const faq = item.data.faq || [];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: item.data.title,
+  description: item.data.description,
+  author: { '@type': 'Organization', name: '壹号申诉' },
+};
 ---
 
 <ArticleLayout
   title={`${item.data.title} — 壹号申诉`}
   description={item.data.description}
+  keywords="淘宝申诉,天猫申诉,违规申诉"
   breadcrumbs={[
     { label: '首页', href: '/' },
     { label: '淘宝申诉', href: '/taobao/' },
     { label: item.data.title },
   ]}
   faqSchema={faq}
+  articleSchema={articleSchema}
 >
   <h1 class="text-xl md:text-2xl font-semibold text-primary leading-snug mb-6">{item.data.title}</h1>
   <Content />

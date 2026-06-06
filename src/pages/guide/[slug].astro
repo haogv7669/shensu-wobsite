@@ -14,17 +14,28 @@ const item = items.find(i => i.id === slug);
 if (!item) return Astro.redirect('/404');
 
 const { Content } = await render(item);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: item.data.title,
+  description: item.data.description,
+  datePublished: item.data.date.toISOString(),
+  author: { '@type': 'Organization', name: '壹号申诉' },
+};
 ---
 
 <ArticleLayout
   title={`${item.data.title} — 壹号申诉知识库`}
   description={item.data.description}
+  keywords="淘宝申诉,电商合规,申诉知识库"
   breadcrumbs={[
     { label: '首页', href: '/' },
     { label: '知识库', href: '/guide/' },
     { label: item.data.title },
   ]}
   faqSchema={item.data.faq || []}
+  articleSchema={articleSchema}
 >
   <h1 class="text-xl md:text-2xl font-semibold text-primary leading-snug mb-3">{item.data.title}</h1>
   {item.data.date && <p class="text-xs text-text-light mb-6">{item.data.date.toLocaleDateString('zh-CN')}</p>}

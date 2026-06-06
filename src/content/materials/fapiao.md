@@ -47,4 +47,9 @@ faq:
 
 先看处罚截图和现有材料，再判断是否有处理空间。我们不承诺结果，不做虚假材料。
 
+## 相关文章
+
+- [采购凭证整理指南：进货单和合同怎么用](/materials/caigou-pingzheng/)
+- [售假申诉没有发票？四件套替代方案](/guide/shoujia-wupan-meiyou-fapiao/)
+
 [提交处罚截图，免费初筛 →](/contact/)

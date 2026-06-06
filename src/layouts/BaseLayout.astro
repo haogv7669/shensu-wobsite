@@ -9,9 +9,10 @@ interface Props {
   title: string;
   description: string;
   schema?: Record<string, unknown>;
+  keywords?: string;
 }
 
-const { title, description, schema } = Astro.props;
+const { title, description, schema, keywords } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@ const { title, description, schema } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <SEO {title} {description} {schema} />
+    <SEO {title} {description} {schema} {keywords} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="min-h-screen flex flex-col">

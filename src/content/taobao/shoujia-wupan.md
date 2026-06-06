@@ -68,4 +68,10 @@ faq:
 
 先看处罚截图和现有材料，再判断是否有处理空间。我们不承诺结果，不做虚假材料。
 
+## 相关文章
+
+- [授权链整理指南：逐层核查](/materials/shouquan-lian/)
+- [发票怎么提供？补开、核对、替代方案](/materials/fapiao/)
+- [采购凭证整理指南：进货单和合同怎么用](/materials/caigou-pingzheng/)
+
 [提交处罚截图，免费初筛 →](/contact/)

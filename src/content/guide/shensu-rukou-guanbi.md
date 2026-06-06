@@ -62,4 +62,9 @@ faq:
 
 先看处罚截图和现有材料，再判断是否有处理空间。不承诺结果，不做虚假材料。
 
+## 相关文章
+
+- [申诉补材料指南：第一次提交后还能补什么](/guide/taobao-shensu-bucailiao/)
+- [被处罚后第一步做什么？正确处理顺序](/guide/taobao-chufa-hou-xianzuo-shenme/)
+
 [提交处罚截图，免费初筛 →](/contact/)

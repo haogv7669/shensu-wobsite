@@ -12,9 +12,11 @@ interface Props {
   breadcrumbs: { label: string; href?: string }[];
   faqSchema?: { q: string; a: string }[];
   schema?: Record<string, unknown>;
+  keywords?: string;
+  articleSchema?: Record<string, unknown>;
 }
 
-const { title, description, breadcrumbs, faqSchema, schema } = Astro.props;
+const { title, description, breadcrumbs, faqSchema, schema, keywords, articleSchema } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ const { title, description, breadcrumbs, faqSchema, schema } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <SEO {title} {description} {schema} />
+    <SEO {title} {description} {schema} {keywords} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="min-h-screen flex flex-col">
@@ -40,6 +42,9 @@ const { title, description, breadcrumbs, faqSchema, schema } = Astro.props;
     <Footer />
     <QRCodeModal />
 
+    {articleSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    )}
     {faqSchema && faqSchema.length > 0 && (
       <script type="application/ld+json" set:html={JSON.stringify({
         '@context': 'https://schema.org',

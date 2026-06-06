@@ -51,4 +51,10 @@ faq:
 
 先看处罚截图和现有材料，再判断是否有处理空间。我们不承诺结果，不做虚假材料。
 
+## 相关文章
+
+- [知识产权投诉申诉材料清单：商标、专利、著作权的应对重点](/guide/zhishichanquan-tousu-cailiao/)
+- [授权链整理指南：逐层核查](/materials/shouquan-lian/)
+- [品牌授权书审核要点](/materials/pinpai-shouquanshu/)
+
 [提交处罚截图，免费初筛 →](/contact/)

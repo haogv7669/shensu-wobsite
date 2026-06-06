@@ -3,13 +3,15 @@ interface Props {
   title: string;
   description: string;
   schema?: Record<string, unknown>;
+  keywords?: string;
 }
 
-const { title, description, schema } = Astro.props;
+const { title, description, schema, keywords } = Astro.props;
 ---
 
 <title>{title}</title>
 <meta name="description" content={description} />
+{keywords && <meta name="keywords" content={keywords} />}
 <meta name="baidu-site-verification" content="codeva-OY4GVqDEYE" />
 <link rel="canonical" href={new URL(Astro.url.pathname, Astro.url.origin).href} />
 <meta property="og:title" content={title} />

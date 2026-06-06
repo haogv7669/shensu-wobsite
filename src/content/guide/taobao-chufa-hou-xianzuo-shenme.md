@@ -74,4 +74,10 @@ faq:
 
 把处罚截图发过来——初筛免费。我们告诉你：这是什么类型、严重程度怎么样、大概需要哪些材料、有没有处理空间。不确定能不能过的，先发截图。
 
+## 相关文章
+
+- [处罚截图怎么看？违规编号、截止时间解读](/guide/taobao-chufa-jietu-zenmekan/)
+- [申诉入口关闭了还能处理吗？](/guide/shensu-rukou-guanbi/)
+- [淘宝申诉为什么失败？六大常见驳回原因](/guide/taobao-shensu-shibai/)
+
 [提交处罚截图，免费初筛 →](/contact/)
