@@ -30,4 +30,20 @@ const guide = defineCollection({
   }),
 });
 
-export const collections = { taobao, materials, guide };
+const cases = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/cases" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.date(),
+    violation: z.string(),
+    platform: z.string(),
+    penalty: z.string(),
+    difficulty: z.string(),
+    result: z.string(),
+    keywords: z.string().optional(),
+    source: z.string().optional(),
+  }),
+});
+
+export const collections = { taobao, materials, guide, cases };

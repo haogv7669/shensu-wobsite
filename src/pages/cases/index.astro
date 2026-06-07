@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const items = (await getCollection('cases')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="真实申诉案例 — 壹号申诉"
+  description="淘宝天猫店铺违规申诉真实场景拆解，涵盖售假误判、虚假交易、知识产权投诉等典型案例。脱敏处理，仅供参考。"
+  keywords="淘宝申诉案例,天猫申诉成功案例,电商违规案例,申诉场景拆解"
+>
+  <section class="pt-20 pb-24 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-2xl md:text-3xl font-semibold text-primary mb-3">真实申诉案例</h1>
+      <p class="text-sm text-text-muted mb-12">以下案例来自电商社群、社交媒体公开分享，经脱敏处理和场景分析改写。仅供参考，不构成申诉承诺。</p>
+      {items.length === 0 ? (
+        <p class="text-sm text-text-light">案例陆续整理中，敬请期待。</p>
+      ) : (
+        <div class="grid grid-cols-1 gap-6">
+          {items.map(item => (
+            <a href={`/cases/${item.id}/`} class="group block bg-surface rounded-lg border border-border/50 p-6 hover:border-primary/20 hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="text-[10px] font-medium text-accent bg-accent/5 px-2 py-0.5 rounded">{item.data.platform}</span>
+                <span class="text-[10px] font-medium text-primary bg-primary/5 px-2 py-0.5 rounded">{item.data.violation}</span>
+                <span class="text-[10px] font-medium text-green-700 bg-green-50 px-2 py-0.5 rounded">{item.data.result}</span>
+              </div>
+              <h2 class="text-base font-semibold text-primary mb-2 group-hover:text-primary-light transition-colors">{item.data.title}</h2>
+              <p class="text-sm text-text-muted line-clamp-2">{item.data.description}</p>
+              <span class="inline-block mt-3 text-xs text-text-light group-hover:text-primary transition-colors">查看详情 →</span>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '@layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const items = await getCollection('cases');
+  return items.map(item => ({ params: { slug: item.id } }));
+}
+
+const { slug } = Astro.params;
+const items = await getCollection('cases');
+const item = items.find(i => i.id === slug);
+
+if (!item) return Astro.redirect('/404');
+
+const { Content } = await render(item);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: item.data.title,
+  description: item.data.description,
+  datePublished: item.data.date.toISOString(),
+  author: { '@type': 'Organization', name: '壹号申诉' },
+};
+---
+
+<ArticleLayout
+  title={`${item.data.title} — 壹号申诉`}
+  description={item.data.description}
+  keywords={item.data.keywords || `淘宝申诉,电商申诉,${item.data.violation},${item.data.platform}申诉`}
+  breadcrumbs={[
+    { label: '首页', href: '/' },
+    { label: '案例', href: '/cases/' },
+    { label: item.data.title },
+  ]}
+  articleSchema={articleSchema}
+>
+  <h1 class="text-xl md:text-2xl font-semibold text-primary leading-snug mb-3">{item.data.title}</h1>
+  <div class="flex flex-wrap gap-2 mb-6">
+    <span class="text-[11px] font-medium text-accent bg-accent/5 px-2 py-0.5 rounded">{item.data.platform}</span>
+    <span class="text-[11px] font-medium text-primary bg-primary/5 px-2 py-0.5 rounded">{item.data.violation}</span>
+    <span class="text-[11px] font-medium text-green-700 bg-green-50 px-2 py-0.5 rounded">{item.data.result}</span>
+  </div>
+  {item.data.date && <p class="text-xs text-text-light mb-6">{item.data.date.toLocaleDateString('zh-CN')}</p>}
+  <Content />
+</ArticleLayout>
